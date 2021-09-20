@@ -14,35 +14,76 @@ var answersCorrect = 0;
 
 //questions
 var quizQuestionsObj = [{
-    question: "Is this dumb?",
-    answers: {answer1: "Yes",
-        answer2: "No",
-        answer3: "Maybe",
-        answer4: "Pass"},
+    question: "What is NOT a Javascript dtat type",
+    answers: {answer1: "Special Character",
+        answer2: "Object",
+        answer3: "Boolean",
+        answer4: "String"},
     solution: "answer-1"
 },{
-    question: "x",
-    answers: {answer1: "a",
-        answer2: "b",
-        answer3: "c",
-        answer4: "d"},
+    question: "What company developed Javascript",
+    answers: {answer1: "Apple",
+        answer2: "Netscape",
+        answer3: "Microsoft",
+        answer4: "The company our instructor works for"},
     solution: "answer-2"
+},{
+    question: "Which option shows the Javascript equality operator",
+    answers: {answer1: "=",
+        answer2: "===",
+        answer3: ">=",
+        answer4: "++"},
+    solution: "answer-2"
+},{
+    question: "What is the result of '7'+'1'+'1'",
+    answers: {answer1: "9",
+        answer2: "71",
+        answer3: "81",
+        answer4: "711"},
+    solution: "answer-4"
+},{
+    question: "What is event bubbling?",
+    answers: {answer1: "When two or more styles interfere with each other and element 'bubble' together",
+        answer2: "When nested elements allow the handler of the parent to work as if it was clicked",
+        answer3: "An organizational layout unique to Javascript",
+        answer4: "There is no such thing, this is a common gotcha interview question to see if you studied"},
+    solution: "answer-2"
+},{
+    question: "Is Javascript case sensitive",
+    answers: {answer1: "Yes",
+        answer2: "No",
+        answer3: "Yes - Only within if statements",
+        answer4: "Yes - Only within for statements"},
+    solution: "answer-1"
+},{
+    question: "What is a callback function?",
+    answers: {answer1: "The first instnace where Javascript was deployed - literally calling people back that hung up on telemarketers",
+        answer2: "A function that can me called with the command callBack()",
+        answer3: "A function passed into another function as an arguement",
+        answer4: "There is no such thing as a callback function is specific to HTML"},
+    solution: "answer-3"
+},{
+    question: "What is true about Javascript objects?",
+    answers: {answer1: "We no longer use them due to security concerns",
+        answer2: "They must all have a unique ID",
+        answer3: "They need to be cleared before navigating away from the web page",
+        answer4: "They are name:value pairs"},
+    solution: "answer-4"
+},{
+    question: "What is the issue with the following piece of Javascript code: var i = 1; while (i === 1) {someFunction()}",
+    answers: {answer1: "Nothing, this is how you call Javascript",
+        answer2: "We have an infinate loop (assuming that 'someFunction()' doesn't change the value of i",
+        answer3: "The '===' needs to be changed to '='",
+        answer4: "We haven't appended a chile to anything and that is the only point of Javascript."},
+    solution: "answer-2"
+},{
+    question: "What does the 'push()' method do?",
+    answers: {answer1: "Pushes the code out to production",
+        answer2: "Adds an element to an object",
+        answer3: "Adds an element to an array",
+        answer4: "Woah..Don't ever even think about putting that in your code"},
+    solution: "answer-3"
 }]
-// },{
-//     question: x,
-//     answer1: a,
-//     answer2: b,
-//     answer3: b,
-//     answer4: b,
-//     solution: b
-// },{
-//     question: x,
-//     answer1: a,
-//     answer2: b,
-//     answer3: b,
-//     answer4: b,
-//     solution: b
-//}
 
 var compareNumbers = function(a, b) {
     return a - b;
