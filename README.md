@@ -10,7 +10,7 @@ The page for this project can be found at https://tbusch74.github.io/4-Code-Quiz
 
 See below for a screenshot of the finished webpage.
 
-![Code Quiz screenshot](assets/images/Screenshot.PNG)
+![Code Quiz screenshot](assets/images/screenshot.JPG)
 
 ## Credits
 
