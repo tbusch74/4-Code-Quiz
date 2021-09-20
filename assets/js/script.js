@@ -44,7 +44,9 @@ var quizQuestionsObj = [{
 //     solution: b
 //}
 
-//functions
+var compareNumbers = function(a, b) {
+    return a - b;
+}
 var startTimer = function(){
         setInterval(function() {
         if (sec < 0) {
@@ -96,14 +98,62 @@ var answerQuestion = function (event, solution) {
     }
 }
 
+var checkHighScores = function () {
+    if (localStorage.getItem("scores") === null) {
+        savedScores = []
+        enterHighScore();
+    }else{
+        savedScores = localStorage.getItem("scores");
+        savedScores = JSON.parse(savedScores);
+        savedScores = savedScores.sort(function(a, b){return b.score - a.score});
+        if (savedScores.length < 3) {
+            enterHighScore();
+        }else if (savedScores[2].score < answersCorrect) {
+            enterHighScore();
+        }else{
+            alert("You didn't get a top score. Kepep Studying!")
+            viewHighScores();
+        }
+    }  
+}
+
+var enterHighScore = function () {    
+    alert("You have made the top 3! Congrats!")
+    var playerScore = {
+    name: prompt("What is your name?"),
+    score: answersCorrect
+    }
+    savedScores.push(playerScore);
+    savedScores = savedScores.sort(function(a, b){return b.score - a.score});
+    debugger;
+    if (savedScores.length > 3) {
+        savedScores = savedScores.slice(0, 3);
+    }
+    localStorage.setItem("scores", JSON.stringify(savedScores));
+    viewHighScores();
+}
+
 var viewHighScores = function () {
     headerEditEl.innerHTML = '<div class="header-wrapper"><h1 class = "page-title">Javascript FUNdamentals Quiz HIGH SCORES</h1>'   
-    mainEditEl.innerHTML = '<div class="high-score-area"></div>'
+    mainEditEl.innerHTML = '<div class="high-score-area"><ul></ul></div>'
+    highScores = localStorage.getItem("scores");
+    highScores = JSON.parse(highScores);
+    for (i = 0; i<highScores.length; i++) {
+        var highScoreEl = document.querySelector(".high-score-area ul");
+        var highScorerEl = document.createElement("li");
+        highScorerEl.textContent = highScores[i].name + " - " + highScores[i].score;
+        highScoreEl.appendChild(highScorerEl);
+    }
+    var returnButtonEl = document.createElement("button");
+    returnButtonEl.className = "reset-btn";
+    returnButtonEl.textContent = "Return to Quiz Start";
+    var returnButtonAreaEl = document.querySelector(".high-score-area");
+    returnButtonAreaEl.appendChild(returnButtonEl);
 }
 
 var endGame = function () {
     alert("The quiz is over, lets see how you did!");
-    viewHighScores();
+    checkHighScores();
 }
 //event listeners
 startQuizEl.addEventListener("click", startQuiz);
@@ -115,5 +165,8 @@ pageContentEl.addEventListener("click", function(event) {
     if (targetEl.matches (".answer-btn")) {
         var solution = quizQuestionsObj[questionCount].solution;
         answerQuestion(event, solution);
+    }
+    if (targetEl.matches (".reset-btn")) {
+        location.reload();
     }
 })
