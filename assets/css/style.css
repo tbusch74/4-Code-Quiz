@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    align-items:flex-start;
+}
+header .header-wrapper {
+    width: 50%;
+    text-align: center;
+}
+
+.high-scores, .timer {
+    width: 20%;
+}

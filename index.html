@@ -7,14 +7,23 @@
     <title>Javascript Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="page-content">
     <header>
-        <p id="high-scores">View High Scores</p>
-        <h1 class = "page-title">Javascript FUNdamentals Quiz</h1>
+        <button type="button" class="high-scores" id="high-scores">View High Scores</button>
+        <div class="header-wrapper">
+            <h1 class = "page-title">Javascript FUNdamentals Quiz</h1>
+            <p>Rules: <br>
+            10 minutes <br>
+            Minus 30 seconds for each wrong answer <br>
+            Don't cheat and look in the code!
+            </p>
+        </div>
         <div class="timer"></div>
     </header>
     <main>
-
+        <button type="button" class="start-quiz">START QUIZ!</button>
+        <h2 class="question-area"></h2>
+        <div class="answer-area"></div>
     </main>
     <footer>
 
