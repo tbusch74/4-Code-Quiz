@@ -8,13 +8,13 @@ var answerAreaEl = document.querySelector(".answer-area");
 var resultAreaEl = document.querySelector(".result-area");
 var headerEditEl = document.querySelector("header");
 var mainEditEl = document.querySelector("main");
-var sec = 600;
+var sec = 601;
 var questionCount = 0;
 var answersCorrect = 0;
 
 //questions
 var quizQuestionsObj = [{
-    question: "What is NOT a Javascript dtat type",
+    question: "What is NOT a Javascript data type",
     answers: {answer1: "Special Character",
         answer2: "Object",
         answer3: "Boolean",
@@ -85,18 +85,16 @@ var quizQuestionsObj = [{
     solution: "answer-3"
 }]
 
-var compareNumbers = function(a, b) {
-    return a - b;
-}
 var startTimer = function(){
-        setInterval(function() {
-        if (sec < 0) {
-            clearInterval(setInterval());
+        var timer = setInterval(function() {
+        sec = sec - 1;
+        timerEl.textContent ="Seconds Remaining: " + sec;
+        if (sec <= -1) {
+            clearInterval(timer);
             endGame();
         }
-        timerEl.textContent ="Seconds Remaining: " + sec;
-        sec = sec - 1;
     }, 1000);
+
 }
 
 var startQuiz = function(event){
@@ -166,7 +164,6 @@ var enterHighScore = function () {
     }
     savedScores.push(playerScore);
     savedScores = savedScores.sort(function(a, b){return b.score - a.score});
-    debugger;
     if (savedScores.length > 3) {
         savedScores = savedScores.slice(0, 3);
     }
